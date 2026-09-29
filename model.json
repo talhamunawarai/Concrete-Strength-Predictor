@@ -1,0 +1,35 @@
+{
+    "model_type": "LinearRegression",
+    "target": "Concrete compressive strength (MPa)",
+    "features": [
+        "Cement",
+        "Blast Furnace Slag",
+        "Fly Ash",
+        "Water",
+        "Superplasticizer",
+        "Coarse Aggregate",
+        "Fine Aggregate",
+        "Age"
+    ],
+    "coefficients": [
+        0.11897516445750139,
+        0.10851780951927956,
+        0.08216853987916609,
+        -0.1357119243952943,
+        0.3087320207569486,
+        0.017804362512522393,
+        0.02406104099649007,
+        0.11644447612908503
+    ],
+    "intercept": -28.635739356575925,
+    "test_metrics": {
+        "r2": 0.6275416055429021,
+        "mae": 7.745392872421344,
+        "rmse": 9.796707832398447
+    },
+    "training": {
+        "test_size": 0.2,
+        "random_state": 42,
+        "rows": 1030
+    }
+}

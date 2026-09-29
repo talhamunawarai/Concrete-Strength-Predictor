@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concrete Strength Predictor</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        label { font-weight: bold; }
+        input { width: 100%; padding: 10px; margin-top: 6px; box-sizing: border-box; }
+        button { grid-column: 1 / -1; padding: 12px; font-size: 16px; cursor: pointer; }
+        .result { margin-top: 24px; padding: 18px; background: #eef7ee; border-radius: 8px; }
+        .error { margin-top: 24px; padding: 18px; background: #fdecec; border-radius: 8px; }
+        @media (max-width: 650px) { form { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <h1>Concrete Compressive Strength Predictor</h1>
+    <p>Enter the concrete mixture and age values.</p>
+
+    <form method="POST">
+        <div>
+            <label>Cement (kg/m³)</label>
+            <input name="Cement" type="number" step="any" required>
+        </div>
+        <div>
+            <label>Blast Furnace Slag (kg/m³)</label>
+            <input name="Blast Furnace Slag" type="number" step="any" required>
+        </div>
+        <div>
+            <label>Fly Ash (kg/m³)</label>
+            <input name="Fly Ash" type="number" step="any" required>
+        </div>
+        <div>
+            <label>Water (kg/m³)</label>
+            <input name="Water" type="number" step="any" required>
+        </div>
+        <div>
+            <label>Superplasticizer (kg/m³)</label>
+            <input name="Superplasticizer" type="number" step="any" required>
+        </div>
+        <div>
+            <label>Coarse Aggregate (kg/m³)</label>
+            <input name="Coarse Aggregate" type="number" step="any" required>
+        </div>
+        <div>
+            <label>Fine Aggregate (kg/m³)</label>
+            <input name="Fine Aggregate" type="number" step="any" required>
+        </div>
+        <div>
+            <label>Age (days)</label>
+            <input name="Age" type="number" step="any" required>
+        </div>
+        <button type="submit">Predict Strength</button>
+    </form>
+
+    {% if prediction is not none %}
+    <div class="result">
+        <h2>Predicted Strength: {{ prediction }} MPa</h2>
+    </div>
+    {% endif %}
+
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+</body>
+</html>
